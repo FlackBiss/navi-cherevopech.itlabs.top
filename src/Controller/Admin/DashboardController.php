@@ -2,6 +2,7 @@
 
 namespace App\Controller\Admin;
 
+use App\Entity\StandBy;
 use App\Entity\User;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Dashboard;
 use EasyCorp\Bundle\EasyAdminBundle\Config\MenuItem;
@@ -34,6 +35,7 @@ class DashboardController extends AbstractDashboardController
 
     public function configureMenuItems(): iterable
     {
+        yield MenuItem::linkToCrud('Режим ожидания', 'fa fa-terminal', StandBy::class);
         yield MenuItem::section('Настройки');
         yield MenuItem::linkToCrud('Пользователи', 'fas fa-user-gear', User::class)
             ->setPermission('ROLE_ADMIN');
