@@ -41,8 +41,20 @@ use Vich\UploaderBundle\Mapping\Annotation as Vich;
                         name: 'q',
                         in: 'query',
                         description: 'Search query string',
-                        required: true,
-                        schema: ['type' => 'string']
+                        required: false,
+                        schema: ['type' => 'string'],
+                    ),
+                    new Parameter(
+                        name: 'categoryIds[]',
+                        in: 'query',
+                        description: 'Optional category filters (array of category IDs)',
+                        required: false,
+                        schema: [
+                            'type' => 'array',
+                            'items' => ['type' => 'integer']
+                        ],
+                        style: 'form',
+                        explode: true,
                     ),
                 ],
             ),
@@ -105,6 +117,7 @@ class Tenant
 
     #[ORM\ManyToOne(inversedBy: 'tenants')]
     #[ORM\JoinColumn(onDelete: "SET NULL")]
+    #[Groups(['floor:read', 'tenant:read', 'category:read'])]
     private ?Category $category = null;
 
     /**
@@ -404,5 +417,11 @@ class Tenant
         }
 
         return $this;
+    }
+
+    #[Groups(['tenant:read'])]
+    public function getCategoryId(): ?int
+    {
+        return $this->category?->getId();
     }
 }

@@ -66,6 +66,7 @@ class DashboardController extends AbstractDashboardController
         yield MenuItem::linkToCrud('Объекты карты', 'fas fa-door-closed', Tenant::class);
         yield MenuItem::linkToCrud('Терминалы', 'fas fa-display', Terminal::class);
 
+        yield MenuItem::section('Аналитика');
         yield MenuItem::linkToCrud('Запросы', 'fas fa-list', Queries::class);
         yield MenuItem::linkToCrud('Функции', 'fa fa-list', Functions::class);
         yield MenuItem::linkToCrud('Сессии', 'fa fa-clock', Sessions::class);

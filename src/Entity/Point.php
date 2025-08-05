@@ -170,10 +170,4 @@ class Point
 
         return $this;
     }
-
-    #[Groups(['node:read'])]
-    public function getFloorName(): ?string
-    {
-        return $this->getFloor()?->getName();
-    }
 }

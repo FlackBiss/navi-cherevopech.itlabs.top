@@ -34,7 +34,6 @@ class CategoryCrudController extends AbstractCrudController
 
     public function configureFields(string $pageName): iterable
     {
-        yield FormField::addTab('Главная');
         yield IdField::new('id')->onlyOnIndex();
 
         yield VichImageField::new('imageFile', 'Изображение')
@@ -60,10 +59,5 @@ class CategoryCrudController extends AbstractCrudController
                     'Спорт' => 'Спорт',
                 ]
             );
-
-        yield FormField::addTab('Слова для поиска');
-        yield ArrayField::new('searchAliases', 'Слова')
-            ->setColumns(8)
-            ->hideOnIndex();
     }
 }
