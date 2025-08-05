@@ -8,6 +8,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Config\Actions;
 use EasyCorp\Bundle\EasyAdminBundle\Config\Crud;
 use EasyCorp\Bundle\EasyAdminBundle\Controller\AbstractCrudController;
 use EasyCorp\Bundle\EasyAdminBundle\Field\AssociationField;
+use EasyCorp\Bundle\EasyAdminBundle\Field\DateTimeField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\IdField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 
@@ -37,5 +38,6 @@ class QueriesCrudController extends AbstractCrudController
         yield IdField::new('id')->onlyOnIndex();
         yield AssociationField::new('tenant', 'Объект карты');
         yield TextField::new('type', 'Тип');
+        yield DateTimeField::new('createdAt', 'Дата создания');
     }
 }

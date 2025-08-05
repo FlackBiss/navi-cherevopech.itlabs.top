@@ -2,7 +2,6 @@
 
 namespace App\Entity;
 
-use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\RequestBody;
@@ -37,7 +36,6 @@ use Doctrine\ORM\Mapping as ORM;
     ),
     deserialize: false
 )]
-#[Get]
 class Queries
 {
     use CreatedAtTrait;
