@@ -69,6 +69,9 @@
             "ref": "b131e6cbfe1b898a508987851963fff485986285"
         }
     },
+    "endroid/qr-code-bundle": {
+        "version": "6.0.0"
+    },
     "nelmio/cors-bundle": {
         "version": "2.3",
         "recipe": {

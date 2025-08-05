@@ -6,3 +6,19 @@ vich_uploader:
             uri_prefix: /media/standby
             upload_destination: '%kernel.project_dir%/public/media/standby'
             namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        floor_images:
+            uri_prefix: /images/floor
+            upload_destination: '%kernel.project_dir%/public/images/floor'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        tenant_media:
+            uri_prefix: /media/tenant
+            upload_destination: '%kernel.project_dir%/public/media/tenant'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        category_images:
+            uri_prefix: /images/category
+            upload_destination: '%kernel.project_dir%/public/images/category'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
+        tenant_images:
+            uri_prefix: /images/tenant
+            upload_destination: '%kernel.project_dir%/public/images/tenant'
+            namer: Vich\UploaderBundle\Naming\SmartUniqueNamer
