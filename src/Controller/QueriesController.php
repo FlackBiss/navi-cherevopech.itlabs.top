@@ -21,8 +21,10 @@ class QueriesController extends AbstractController
 
     public function __invoke(Request $request): JsonResponse
     {
-        $tenantId = $request->request->get('tenantId');
-        $type = $request->request->get('type');
+        $data = json_decode($request->getContent(), true);
+
+        $tenantId = $data['tenantId'];
+        $type = $data['type'];
 
         $tenant = $this->tenantRepository->find($tenantId);
 

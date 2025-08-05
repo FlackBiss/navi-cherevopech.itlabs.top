@@ -2,6 +2,7 @@
 
 namespace App\Entity;
 
+use ApiPlatform\Metadata\Get;
 use ApiPlatform\Metadata\Post;
 use ApiPlatform\OpenApi\Model\Operation;
 use ApiPlatform\OpenApi\Model\RequestBody;
@@ -13,6 +14,7 @@ use Doctrine\ORM\Mapping as ORM;
 #[ORM\HasLifecycleCallbacks]
 #[ORM\Entity(repositoryClass: QueriesRepository::class)]
 #[Post(
+    uriTemplate: '/queries',
     controller: QueriesController::class,
     openapi: new Operation(
         requestBody: new RequestBody(
@@ -22,7 +24,7 @@ use Doctrine\ORM\Mapping as ORM;
                         'type' => 'object',
                         'properties' => [
                             'tenantId' => [
-                                'type' => 'string',
+                                'type' => 'integer',
                             ],
                             'type' => [
                                 'type' => 'string',
@@ -33,7 +35,9 @@ use Doctrine\ORM\Mapping as ORM;
             ])
         )
     ),
+    deserialize: false
 )]
+#[Get]
 class Queries
 {
     use CreatedAtTrait;

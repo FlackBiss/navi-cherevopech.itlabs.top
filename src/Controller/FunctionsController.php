@@ -19,7 +19,9 @@ class FunctionsController extends AbstractController
 
     public function __invoke(Request $request): JsonResponse
     {
-        $title = $request->request->get('title');
+        $data = json_decode($request->getContent(), true);
+
+        $title = $data['title'];
 
         if (!$title) {
             throw new NotFoundHttpException('Invalid title');
