@@ -27,7 +27,7 @@ class CategoryCrudController extends AbstractCrudController
     {
         return parent::configureCrud($crud)
             ->setEntityLabelInPlural('Категории')
-            ->setEntityLabelInSingular('категория')
+            ->setEntityLabelInSingular('категорию')
             ->setPageTitle(Crud::PAGE_NEW, 'Добавление категории')
             ->setPageTitle(Crud::PAGE_EDIT, 'Изменение категории');
     }
