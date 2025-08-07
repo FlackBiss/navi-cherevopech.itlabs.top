@@ -32,7 +32,7 @@ class DashboardController extends AbstractDashboardController
     public function index(): Response
     {
         $adminUrlGenerator = $this->container->get(AdminUrlGenerator::class);
-        return $this->redirect($adminUrlGenerator->setController(UserCrudController::class)->generateUrl());
+        return $this->redirect($adminUrlGenerator->setController(CategoryCrudController::class)->generateUrl());
     }
 
     public function configureDashboard(): Dashboard
@@ -81,8 +81,6 @@ class DashboardController extends AbstractDashboardController
             yield MenuItem::linkToCrud('Настройки', 'fa fa-gear', Settings::class)
                 ->setAction(Action::EDIT)->setEntityId($this->settingsRepository->findAll()[0]->getId());
         }
-        yield MenuItem::linkToCrud('Пользователи', 'fas fa-user-gear', User::class)
-            ->setPermission('ROLE_ADMIN');
         yield MenuItem::linkToUrl('API', 'fa fa-link', '/api')->setLinkTarget('_blank')
             ->setPermission('ROLE_ADMIN');
     }
